@@ -1,12 +1,15 @@
 import { StyledShopPage } from './style';
-import CartModal from '../../components/CartModal';
-import Header from '../../components/Header';
-import ProductList from '../../components/ProductList';
+import CartModal from '../../components/CartModal/CartModal';
+import Header from '../../components/Header/Header';
+import ProductList from '../../components/ProductList/ProductList';
 
 import { StyledContainer } from '../../styles/grid';
 
-const ShopPage = () => (
-  <StyledShopPage>
+const ShopPage = () => {
+
+  return(
+
+<StyledShopPage>
     <CartModal />
     <Header />
     <main>
@@ -15,6 +18,9 @@ const ShopPage = () => (
       </StyledContainer>
     </main>
   </StyledShopPage>
-);
+  )
+}
+  
+
 
 export default ShopPage;
