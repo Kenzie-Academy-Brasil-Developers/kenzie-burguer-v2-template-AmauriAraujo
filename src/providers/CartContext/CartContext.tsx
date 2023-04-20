@@ -56,7 +56,7 @@ export const CartProvider = ({ children }: ICartProviderProps) => {
       const productListCart = [...cartProducts, newproduct];
       setCartProducts(productListCart);
       toast.success("Adicionado ao carrinho",{autoClose:2000});
-    } else toast.error("Produto já cadstrado",{autoClose:2000});
+    } else toast.error("Produto já adicionado",{autoClose:2000});
   };
 
   const removeProduct = (id: number) => {

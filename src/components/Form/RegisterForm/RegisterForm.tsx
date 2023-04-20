@@ -34,25 +34,25 @@ export const RegisterForm = () => {
     <StyledForm onSubmit={handleSubmit(submit)}>
       <Input
         type="text"
-        id={"name"}
+        id={"Nome"}
         register={register("name")}
         error={errors.name}
       />
       <Input
         type="email"
-        id={"email"}
+        id={"E-mail"}
         register={register("email")}
         error={errors.email}
       />
       <Input
         type="password"
-        id={"password"}
+        id={"Senha"}
         register={register("password")}
         error={errors.password}
       />
       <Input
         type="password"
-        id={"confirmPassword"}
+        id={"Confirmar Senha"}
         register={register("confirmPassword")}
         error={errors.confirmPassword}
       />

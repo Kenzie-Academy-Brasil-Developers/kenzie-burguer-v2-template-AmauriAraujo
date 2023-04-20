@@ -28,13 +28,13 @@ const LoginForm = () => {
     <StyledForm onSubmit={handleSubmit(submit)}>
       <Input
         type="email"
-        id={"email"}
+        id={"E-mail"}
         register={register("email")}
         error={errors.email}
       />
       <Input
         type="password"
-        id={"senha"}
+        id={"Senha"}
         register={register("password")}
         error={errors.password}
       />
@@ -43,7 +43,7 @@ const LoginForm = () => {
         $buttonStyle="green"
         disabled={loading}
       >
-        {loading ? "Entrando..." : "Entrar"}
+        {loading ? "Entrando..." : "Logar"}
       </StyledButton>
     </StyledForm>
   );
