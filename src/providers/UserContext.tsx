@@ -19,6 +19,8 @@ interface IUserContext {
     formData: IRegisterFormData,
     setLoading: React.Dispatch<React.SetStateAction<boolean>>
   ) => Promise<void>;
+
+  logout: () => void
 }
 
 interface IUser {
@@ -57,7 +59,6 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
             Authorization: `Bearer ${token}`,
           },
         });
-        console.log(response.data);
         setUser(response.data);
         navigate("/shop");
       } catch (error) {
@@ -117,8 +118,16 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
     }
   };
 
+  const logout=()=>{
+    localStorage.removeItem("@TOKEN");
+    localStorage.removeItem("@USERID");
+    setUser(null)
+    navigate("/")
+
+  }
+
   return (
-    <UserContext.Provider value={{ user,userLogin, userRegister,loadList }}>
+    <UserContext.Provider value={{ user,userLogin, userRegister,loadList,logout }}>
       {children}
     </UserContext.Provider>
   );

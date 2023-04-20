@@ -5,9 +5,16 @@ import { StyledHeader } from "./style";
 import LogoKenzieBurguer from "../../assets/LogoKenzieBurguer.svg";
 
 import { StyledContainer } from "../../styles/grid";
+import { useContext } from "react";
+import { UserContext } from "../../providers/UserContext";
 
-const Header = () => {
 
+ export interface IHeaderProps{
+  setOpenCart:React.Dispatch<React.SetStateAction<boolean>>
+}
+const Header = ({setOpenCart}:IHeaderProps) => {
+
+  const {logout}=useContext(UserContext)
   
   return (
     <StyledHeader>
@@ -24,12 +31,12 @@ const Header = () => {
               <button
                 type="button"
                 onClick={() => {
-                  console.log("Criar lógica");
+                 setOpenCart(true);
                 }}
               >
                 <MdShoppingCart size={28} />
               </button>
-              <button type="button">
+              <button type="button" onClick={()=>logout()}>
                 <MdLogout size={28} />
               </button>
             </div>
