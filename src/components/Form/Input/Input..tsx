@@ -4,7 +4,6 @@ import { StyledParagraph } from "../../../styles/typography";
 
 interface IRegisterProps {
   type: string;
-
   id: string;
   register: UseFormRegisterReturn<string>;
   error?: FieldError;

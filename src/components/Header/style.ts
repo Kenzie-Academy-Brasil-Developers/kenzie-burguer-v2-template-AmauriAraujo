@@ -45,4 +45,23 @@ export const StyledHeader = styled.header`
       }
     }
   }
+#cart-btn{
+  position:relative;
+
+
+  p{background-Color: #27AE60;
+  width:20px;
+height:24px;
+border-radius:7px;
+display:flex;
+align-items:center;
+justify-content:center;
+color:#ffffff;
+font-weight:900;
+font-size:14px;
+position:absolute;
+top:-10px;
+right:-12px;
+}
+}
 `;

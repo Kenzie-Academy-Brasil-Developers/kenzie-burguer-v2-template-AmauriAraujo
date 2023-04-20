@@ -1,9 +1,13 @@
 import Input from "../Input/Input.";
 import { StyledButton } from "../../../styles/button";
 import { StyledForm } from "../../../styles/form";
-import { SubmitHandler, UseFormRegister, useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { useContext, useState } from "react";
-import { UserContext } from "../../../providers/UserContext";
+import { UserContext } from "../../../providers/UserContext/UserContext";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+import { validateFormRegister } from "./FormValidateRegister";
+
 export interface IRegisterFormData {
   name: string;
   email: string;
@@ -15,7 +19,9 @@ export const RegisterForm = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<IRegisterFormData>();
+  } = useForm<IRegisterFormData>({
+    resolver: zodResolver(validateFormRegister),
+  });
 
   const { userRegister } = useContext(UserContext);
 

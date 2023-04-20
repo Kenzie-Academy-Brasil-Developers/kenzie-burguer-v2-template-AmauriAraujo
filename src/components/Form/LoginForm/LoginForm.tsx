@@ -3,7 +3,9 @@ import { StyledButton } from "../../../styles/button";
 import { StyledForm } from "../../../styles/form";
 import Input from "../Input/Input.";
 import { useContext, useState } from "react";
-import { UserContext } from "../../../providers/UserContext";
+import { UserContext } from "../../../providers/UserContext/UserContext";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { ValideteFormLogin } from "./formValidateLogin";
 
 export interface ILoginFormData {
   email: string;
@@ -15,7 +17,7 @@ const LoginForm = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<ILoginFormData>();
+  } = useForm<ILoginFormData>({ resolver: zodResolver(ValideteFormLogin) });
   const [loading, setLoading] = useState(false);
   const { userLogin } = useContext(UserContext);
 
