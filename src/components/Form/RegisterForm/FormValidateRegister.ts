@@ -14,7 +14,7 @@ export const validateFormRegister = z
       .regex(/(?=.*?[A-Z])/, "É necessário pelo menos uma letra maiúscula")
       .regex(/(?=.*?[a-z])/, "É necessário pelo menos uma letra")
       .regex(/(?=.*[0-9])/, "É necessário pelo menos um número")
-      .regex(/(?=.*[$*&@#])/, "É necessário pelo menos um caracter especial"),
+      .regex(/(?=.*[$*&@#!])/, "É necessário pelo menos um caracter especial"),
 
     confirmPassword: z.string().min(1, "Confirme sua senha"),
   })

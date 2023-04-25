@@ -2,7 +2,7 @@ import { FieldError, UseFormRegisterReturn } from "react-hook-form";
 import { StyledInputContainer } from "../../../styles/form";
 import { StyledParagraph } from "../../../styles/typography";
 
-interface IRegisterProps {
+export interface IRegisterProps {
   type: string;
   id: string;
   register: UseFormRegisterReturn<string>;

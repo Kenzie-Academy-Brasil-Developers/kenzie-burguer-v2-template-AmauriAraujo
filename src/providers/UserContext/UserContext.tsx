@@ -5,6 +5,11 @@ import { api } from "../../services/Api";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
+
+interface IError{
+  response:{data:string},
+ 
+}
 interface IUserProviderProps {
   children: React.ReactNode;
 }
@@ -28,11 +33,16 @@ interface IUser {
   email: string;
   name: string;
   id: string;
+
+
 }
 
 interface IUserLoginResponse {
+ 
+  
   accessToken: string;
   user: IUser;
+
 }
 
 interface IUserRegisterResponse {
@@ -90,8 +100,8 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
       localStorage.setItem("@USERID", response.data.user.id);
       setUser(response.data.user);
       navigate("/shop");
-    } catch (error) {
-      console.log(error);
+    } catch (e) {
+      toast.error((e as IError).response.data);
     } finally {
       setLoading(false);
     }
@@ -110,8 +120,8 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
       });
 
       navigate("/");
-    } catch (error) {
-      console.log(error);
+    } catch (e) {
+      toast.error((e as IError).response.data);
     } finally {
       setLoading(false);
     }
